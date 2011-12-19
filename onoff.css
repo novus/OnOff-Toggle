@@ -7,19 +7,19 @@
   border-radius: .2em;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#bbb), to(#eee));
   background-image: -moz-linear-gradient(top, #bbb, #eee);
-  -webkit-background-clip: padding-box;
   text-align: center;
   overflow: hidden;
   line-height: 100%;
   padding: 0em;
   margin: 0em;
+  cursor: pointer;
 }
 
 .toggle_pane {
   -webkit-transition: all 120ms ease-in-out;
-  -moz-transition: all 120ms ease-in-ou
+  -moz-transition: all 120ms ease-in-out;
 }
-.toggle_pane .on, .toggle_pane .off {
+.on, .off {
   box-shadow: inset 0em .05em .15em 0em #888;
   padding: .2em 0em;
 }
@@ -29,7 +29,6 @@
 }
 .toggle_pane .handle {
   width: 2.2em;
-  height: 100%;
 }
 .on {
   color: #fff;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="onoff.js"></script>
+  <script src="jquery.onoff.js"></script>
   <link rel="stylesheet" href="onoff.css"/>
   <body>
     <form>
@@ -9,7 +9,7 @@
       <input name="client" type="checkbox"/>
     </form>
     <script>
-      $("form").replaceCheckboxes();
+      $("form").onOff("replaceCheckboxes");
     </script>
   </body>
 </html>
