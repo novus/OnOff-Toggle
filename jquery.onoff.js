@@ -14,6 +14,9 @@
           ckbox.checked = $(this).hasClass("off_state");
           $(this).toggleClass("off_state");
         });
+        $(ckbox).click(function() {
+          pane.toggleClass("off_state");
+	});
       });
     }
   };
