@@ -3,14 +3,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="onoff.css"/>
   <body>
-    <div class="onoff">
-      <div class="toggle_pane on_state">
-        <div class="on">on</div><div class="handle">&nbsp;</div><div class="off">off</div>
+    <div class="nv-toggle">
+      <div class="nv-pane nv-on-state">
+        <div class="nv-on">on</div><div class="nv-handle">&nbsp;</div><div class="nv-off">off</div>
       </div>
     </div>
     <script>
-      $(".toggle_pane").click(function(e) {
-        $(this).toggleClass("off_state");
+      $(".nv-pane").click(function(e) {
+        $(this).toggleClass("nv-off-state");
       });
     </script>
   </body>

@@ -1,21 +1,21 @@
 (function($) {
-  var cssClassPane = "toggle_pane";
+  var cssClassPane = "nv-pane";
   
   var methods = {
     replaceCheckboxes: function() {
       this.find("input[type=checkbox]").each(function() {
-        var toggle = $('<div class="onoff"><div class="toggle_pane on_state"><div class="on">on</div><div class="handle">&nbsp;</div><div class="off">off</div></div></div>');
+        var toggle = $('<div class="nv-toggle"><div class="nv-pane nv-on-state"><div class="nv-on">on</div><div class="nv-handle">&nbsp;</div><div class="nv-off">off</div></div></div>');
         var pane = $(toggle.children("." + cssClassPane));
         $(this).before(toggle);
-        if(! this.checked) pane.addClass("off_state");
+        if(! this.checked) pane.addClass("nv-off-state");
         var ckbox = this;
         $(ckbox).hide();
         pane.click(function(e) {
-          ckbox.checked = $(this).hasClass("off_state");
-          $(this).toggleClass("off_state");
+          ckbox.checked = $(this).hasClass("nv-off-state");
+          $(this).toggleClass("nv-off-state");
         });
         $(ckbox).click(function() {
-          pane.toggleClass("off_state");
+          pane.toggleClass("nv-off-state");
 	});
       });
     }
