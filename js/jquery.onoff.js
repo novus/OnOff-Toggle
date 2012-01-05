@@ -22,9 +22,9 @@
                 })();
                 var onLabel = labels[0];
                 var offLabel = labels[1];
-
+                var classes = ($(ckbox).attr("class") + " nv-toggle").trim();
                 var toggle = $(
-                    '<div class="nv-toggle">' +
+                    '<div class="' + classes + '">' +
                         '<div class="nv-pane nv-on-state">' +
                         '<div class="nv-on">' + onLabel + '</div>' +
                         '<div class="nv-handle">&nbsp;</div>' +
