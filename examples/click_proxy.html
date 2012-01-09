@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../js/jquery.onoff.js"></script>
+  <link rel="stylesheet" href="../css/onoff.css"/>
+  <body>
+    <form>
+      <label for="some_item">this one</label>
+      <input id="some_item" name="client" type="checkbox"/>
+    </form>
+    <script>
+      $("form").onOff({ bindClick: true });
+      $("#some_item").onOff("click", function(e) {
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>

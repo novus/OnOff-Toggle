@@ -1,6 +1,6 @@
 (function($) {
   var cssClassPane = "nv-pane";
-
+  
   var methods = {
     init: function(options) {
 
@@ -13,6 +13,8 @@
       this.find("input[type=checkbox]").each(function() {
         /* Create the toggle control in the document. */
         var ckbox = this;
+        var id = this.id + "_onoff";
+
         var defaultLabels = ['on', 'off'];
         var labels = (function() {
           if(settings.useLabel) {
@@ -24,7 +26,7 @@
         var offLabel = labels[1];
         var classes = ($(ckbox).attr("class") + " nv-toggle").trim();
         var toggle = $(
-          '<div class="' + classes + '">' +
+          '<div id="' + id + '" class="' + classes + '">' +
             '<div class="nv-pane nv-on-state">' +
             '<div class="nv-on">' + onLabel + '</div>' +
             '<div class="nv-handle">&nbsp;</div>' +
@@ -49,6 +51,13 @@
             pane.toggleClass("nv-off-state");
           });
       });
+    },
+    
+    /** Bind a click event to the toggle and peer input control. */
+    click: function(handler) {
+      $(this).click(function(e) { return handler.call(this, e); })
+      var peerOnOffId = $(this).attr("id") + "_onoff";
+      $("#" + peerOnOffId).click(function(e) { return handler.call(this, e); });
     }
   };
 
