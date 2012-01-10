@@ -13,3 +13,10 @@ as the would have. You can also bind the click event of the peer to the toggle:
     $("form").onOff({ bindClick: true });
 
 This will preserve clickability on label elements bound to the checkbox control.
+
+It is sometimes desirable to attach the same click behavior to both the peer control and the
+synthetic toggle:
+
+    $("#some_checkbox").onfOff("click", function(e, ckbox, onoff) {
+      console.log(ckbox.checked);
+    })
