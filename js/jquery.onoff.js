@@ -1,4 +1,23 @@
 (function($) {
+
+  /*
+   * An ad-hoc action queue to defer actions on onoff toggles when necessary. One intended use-case is
+   * using onOff("click", ...) to attach a click handler in code that executes before onoff toggles
+   * have been initialized.
+   */
+  var actions = new (function() {
+    var _actions = [];
+    var _drained = false;
+    this.queue = function(op) {
+      if(_drained) op();
+      else _actions.push(op);
+    };
+    this.execute = function() {
+      _drained = true;
+      _actions.forEach(function(op) { op(); });
+    };
+  });
+
   var cssClassPane = "nv-pane";
   
   var methods = {
@@ -51,13 +70,20 @@
             pane.toggleClass("nv-off-state");
           });
       });
+
+      /* Toggles are ready; run any actions. */
+      actions.execute();
     },
     
     /** Bind a click event to the toggle and peer input control. */
     click: function(handler) {
-      $(this).click(function(e) { return handler.call(this, e); })
-      var peerOnOffId = $(this).attr("id") + "_onoff";
-      $("#" + peerOnOffId).click(function(e) { return handler.call(this, e); });
+      var selfId = $(this).attr("id");
+      actions.queue(function() {
+        var peerCkBox = document.getElementById(selfId);
+        var peerOnOff = document.getElementById(selfId + "_onoff");
+        $(peerCkBox).click(function(e) { return handler.call(this, e, peerCkBox, peerOnOff); })
+        $(peerOnOff).click(function(e) { return handler.call(this, e, peerCkBox, peerOnOff); });
+      });
     }
   };
 
