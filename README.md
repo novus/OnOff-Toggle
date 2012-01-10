@@ -19,4 +19,4 @@ synthetic toggle:
 
     $("#some_checkbox").onfOff("click", function(e, ckbox, onoff) {
       console.log(ckbox.checked);
-    })
+    });
