@@ -24,7 +24,7 @@
     init: function(options) {
 
       var settings = $.extend({
-        "bindClick": false,
+        "bindClick": true,
         "useLabel": false,
         "onClickEvent": ""
       }, options);
